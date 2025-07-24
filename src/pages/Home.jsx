@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
+import profileImg from '../images/profile.jpg';
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
           <svg className="hero-shape" width="120" height="120" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="60" fill="#ffd70033"><animate attributeName="cy" values="60;80;60" dur="4s" repeatCount="indefinite"/></circle></svg>
         </div>
         <div className="hero-content">
-          <img src="/images/profile.jpg" alt="Profile" className="profile-img hero-img" />
+          <img src={profileImg} alt="Profile" className="profile-img hero-img" />
           <h1 className="hero-title">Hi, I'm Shravanthi S</h1>
           <p className="hero-subtitle">A motivated third-year B.Tech student in Computer Science at Amrita Vishwa Vidyapeetham, passionate about AI/ML, problem-solving, and full-stack development. Exploring real-world challenges through hackathons, internships, research, and innovative projects.</p>
           <div style={{ margin: '1.5rem 0', fontSize: '1.1rem', color: '#222', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem' }}>

@@ -1,4 +1,5 @@
 import React from "react";
+import profileImg from '../images/profile.jpg';
 
 const timeline = [
   { year: "2023–2027", title: "B.Tech, Computer Science & Engineering", place: "Amrita Vishwa Vidyapeetham", desc: "CGPA: 8.69/10. Currently a motivated third-year student with a strong passion for AI/ML, problem-solving, and full-stack development. Actively exploring real-world challenges through hackathons, internships, research, and innovative projects." },
@@ -19,7 +20,7 @@ const About = () => {
   return (
     <div className="about-page animated-section">
       <svg className="about-shape" width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="10" y="10" width="60" height="60" rx="18" fill="#6a82fb22"><animate attributeName="x" values="10;20;10" dur="5s" repeatCount="indefinite"/></rect></svg>
-      <img src="/images/profile.jpg" alt="Profile" className="profile-img about-img" />
+      <img src={profileImg} alt="Profile" className="profile-img about-img" />
       <h1 className="about-title">About Me</h1>
       <div className="about-card">
         <p>

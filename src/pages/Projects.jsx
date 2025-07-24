@@ -1,4 +1,8 @@
 import React from 'react';
+import contractSummariserImg from '../images/ContractSummariser.png';
+import coloreImg from '../images/colour_home_page.png';
+import vehicleImg from '../images/vehicle.png';
+import placeholderImg from '../public/placeholder.svg';
 
 const projects = [
   
@@ -6,43 +10,43 @@ const projects = [
     title: 'Contract Summarizer',
     description: 'A Streamlit app that summarizes legal contracts using NLP for quick and easy understanding.',
     link: 'https://github.com/Shravanthi20/contract-summariser',
-    image: 'images/ContractSummariser.png'
+    image: contractSummariserImg
   },
   {
     title: 'COLORÉ',
     description: 'An App designed for users to get personalized wall color suggestions using Google Vision AI. Built using React, MongoDB, Flask and deployed on Google Cloud.',
     link: 'https://github.com/saravanapriyaa21/COLOR_ME',
-    image: 'images/colour_home_page.png'
+    image: coloreImg
   },
   {
     title: 'Vehicle Parking Management Web App',
     description: 'Built using SQLite, that enables user to book desired parking spots online and manage their bookings efficiently.',
     link: '',
-    image: 'images/vehicle.png'
+    image: vehicleImg
   },
   {
     title: 'TanglishMate – Colloquial Tamil Translator',
     description: 'Trained the LLM to respond to colloquial Tamil conversations. Model is available on Hugging Face.',
     link: 'Shrav20/colloquial_tamil_finetuned',
-    image: '/placeholder.svg'
+    image: placeholderImg
   },
   {
     title: 'Movie Recommendation System',
     description: 'A Netflix-like movie recommendation system based on MapReduce algorithm for making it scalable.',
     link: '',
-    image: '/placeholder.svg'
+    image: placeholderImg
   },
   {
     title: 'Medical Inventory Management System',
     description: 'Python & MySQL. Checks and updates inventory, stores stock data.',
     link: '',
-    image: '/placeholder.svg'
+    image: placeholderImg
   },
   {
     title: 'Online Grocery Store',
     description: 'HTML, CSS, JS, Electron JS. E-commerce web app to register users and order groceries.',
     link: '',
-    image: '/placeholder.svg'
+    image: placeholderImg
   }
 ];
 
