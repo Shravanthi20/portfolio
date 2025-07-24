@@ -67,10 +67,6 @@ To get started with this project, follow these steps:
 - Vite
 - CSS
 
-## Author
-
-Your Name  
-[Your LinkedIn](https://linkedin.com/in/yourusername)  
-[Your GitHub](https://github.com/yourusername)  
 
 Feel free to reach out for any inquiries or collaborations!
+# Portfolio
