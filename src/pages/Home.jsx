@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
-import profileImg from '../images/profile.jpg';
+import profileImg from '../../images/profile.jpg';
 
 const Home = () => {
   return (

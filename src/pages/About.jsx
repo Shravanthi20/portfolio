@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from '../images/profile.jpg';
+import profileImg from '../../images/profile.jpg';
 
 const timeline = [
   { year: "2023–2027", title: "B.Tech, Computer Science & Engineering", place: "Amrita Vishwa Vidyapeetham", desc: "CGPA: 8.69/10. Currently a motivated third-year student with a strong passion for AI/ML, problem-solving, and full-stack development. Actively exploring real-world challenges through hackathons, internships, research, and innovative projects." },

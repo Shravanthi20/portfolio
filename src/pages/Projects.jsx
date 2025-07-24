@@ -1,8 +1,8 @@
 import React from 'react';
-import contractSummariserImg from '../images/ContractSummariser.png';
-import coloreImg from '../images/colour_home_page.png';
-import vehicleImg from '../images/vehicle.png';
-import placeholderImg from '../public/placeholder.svg';
+import contractSummariserImg from '../../images/ContractSummariser.png';
+import coloreImg from '../../images/colour_home_page.png';
+import vehicleImg from '../../images/vehicle.png';
+const placeholderImg = process.env.PUBLIC_URL + '/placeholder.svg';
 
 const projects = [
   
