@@ -5,12 +5,12 @@ const timeline = [
   { year: "2023–2027", title: "B.Tech, Computer Science & Engineering", place: "Amrita Vishwa Vidyapeetham", desc: "CGPA: 8.69/10. Currently a motivated third-year student with a strong passion for AI/ML, problem-solving, and full-stack development. Actively exploring real-world challenges through hackathons, internships, research, and innovative projects." },
   { year: "2024 (in progress)", title: "Diploma in Data Science and Applications", place: "IIT Madras", desc: "Currently pursuing the diploma program." },
   { year: "2024", title: "Foundations of Data Science", place: "IIT Madras", desc: "Completed foundational coursework in data science." },
-  { year: "2023", title: "High School Certificate, CBSE", place: "Suguna International School", desc: "9.64/10" },
+  { year: "2023", title: "High School Certificate, CBSE", place: "Suguna International School", desc: "9.62/10" },
 ];
 
 const certifications = [
   { name: "SAWIT GenAI Hackathon Winner (TanglishMate)", org: "SAWIT", year: "2024" },
-  { name: "School Topper", org: "Suguna International School", year: "2023", extra: "Score: 482/500" },
+  { name: "School Topper", org: "Suguna International School", year: "2023", extra: "Score: 481/500" },
   { name: "Postman API Fundamentals Student Expert", org: "Postman", year: "2024" },
   { name: "Google Cloud Study Jam – Intro to GenAI", org: "Google Cloud", year: "2024" },
   { name: "Gemini + Streamlit App Workshop", org: "Google/Streamlit", year: "2024" },
@@ -31,7 +31,7 @@ const About = () => {
           B.Tech, Computer Science & Engineering, Amrita Vishwa Vidyapeetham (2023–2027), CGPA: 8.69/10<br/>
           Diploma in Data Science and Applications (in progress), IIT Madras<br/>
           Foundations of Data Science, IIT Madras, 2024<br/>
-          High School Certificate, CBSE, Suguna International School, 2023, 9.64/10
+          High School Certificate, CBSE, Suguna International School, 2023, 9.62/10
         </p>
         <h2 className="about-subtitle">Contact</h2>
         <p>
