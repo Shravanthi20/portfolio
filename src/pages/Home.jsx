@@ -20,7 +20,7 @@ const Home = () => {
             <span>🔗 <a href="https://linkedin.com/in/shravanthi-s" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>LinkedIn</a></span>
             <span>💻 <a href="https://github.com/Shravanthi20" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>GitHub</a></span>
           </div>
-          <a href="/projects" className="hero-cta">View My Work</a>
+          
         </div>
       </section>
       {/* Fun Fact Section */}
