@@ -1,33 +1,79 @@
-import React from "react";
-import ProjectCard from "../components/ProjectCard";
+
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import profileImg from '../assets/profile.jpg';
 
+const roles = ["Full Stack Developer", "AI/ML Enthusiast", "Data Scientist", "Problem Solver"];
+
 const Home = () => {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullText = roles[currentRole];
+
+      if (isDeleting) {
+        setDisplayText(prev => prev.substring(0, prev.length - 1));
+      } else {
+        setDisplayText(prev => fullText.substring(0, prev.length + 1));
+      }
+
+      if (!isDeleting && displayText === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setCurrentRole(prev => (prev + 1) % roles.length);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, isDeleting ? 50 : 100);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, currentRole]);
+
   return (
     <div className="home-page">
       <section className="hero-section">
-        <div className="hero-bg">
-          {/* Animated SVG wave background */}
-          <svg className="hero-shape" width="120" height="120" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="60" fill="#ffd70033"><animate attributeName="cy" values="60;80;60" dur="4s" repeatCount="indefinite"/></circle></svg>
+        <img src={profileImg} alt="Shravanthi S" className="hero-img" />
+        <h1 className="hero-title">
+          Hi, I'm <span className="gradient-text">Shravanthi S</span>
+        </h1>
+        <h2 className="hero-subtitle" style={{ minHeight: '1.5em', fontSize: '1.5rem', color: '#a5b4fc', fontWeight: 600 }}>
+          {displayText}<span className="cursor">|</span>
+        </h2>
+        <p className="hero-subtitle" style={{ marginTop: '1rem', maxWidth: '700px' }}>
+          A motivated third-year B.Tech student in Computer Science at Amrita Vishwa Vidyapeetham.
+          Passionate about building scalable systems and exploring the frontiers of AI/ML.
+        </p>
+
+        <div style={{ marginTop: '2rem' }}>
+          <Link to="/projects" className="btn-primary" style={{ marginRight: '1rem' }}>View My Work</Link>
+
         </div>
-        <div className="hero-content">
-          <img src={profileImg} alt="Profile" className="profile-img hero-img" />
-          <h1 className="hero-title">Hi, I'm Shravanthi S</h1>
-          <p className="hero-subtitle">A motivated third-year B.Tech student in Computer Science at Amrita Vishwa Vidyapeetham, passionate about AI/ML, problem-solving, and full-stack development. Exploring real-world challenges through hackathons, internships, research, and innovative projects.</p>
-          <div style={{ margin: '1.5rem 0', fontSize: '1.1rem', color: '#222', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem' }}>
-            <span>📞 7708957333</span>
-            <span>✉ <a href="mailto:satyanar061@gmail.com" style={{ color: '#007bff', textDecoration: 'none' }}>satyanar061@gmail.com</a></span>
-            <span>🔗 <a href="https://linkedin.com/in/shravanthi-s" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>LinkedIn</a></span>
-            <span>💻 <a href="https://github.com/Shravanthi20" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>GitHub</a></span>
-          </div>
-          
+
+        <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
         </div>
       </section>
-      {/* Fun Fact Section */}
-      <section className="fun-fact-section animated-section">
-        <h2 className="section-title">Did You Know?</h2>
-        <div style={{ background: 'linear-gradient(135deg, #e0fff4 60%, #ffe0e7 100%)', borderRadius: '14px', boxShadow: '0 2px 12px #ffd70022', padding: '2rem', textAlign: 'center', fontWeight: 600, color: '#007bff', fontSize: '1.2rem', margin: '2rem auto', maxWidth: '600px' }}>
-          <span role="img" aria-label="lightbulb">💡</span> Did you know? The first computer bug was an actual moth found in a computer in 1947! Creativity and curiosity drive innovation—keep exploring and building.
+
+      <section className="glass-panel" style={{ padding: '2rem', textAlign: 'center', marginTop: '2rem' }}>
+        <h2 style={{ color: 'var(--text-main)', marginBottom: '1.5rem' }}>Coding <span className="gradient-text">Activity</span></h2>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+          <img
+            src="https://awesome-github-stats.azurewebsites.net/user-stats/Shravanthi20?theme=github-dark&cardType=github"
+            alt="GitHub Stats"
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+          <img
+            src="https://leetcard.jacoblin.cool/satyanar061?theme=dark&font=Josefin%20Slab&ext=heatmap"
+            alt="LeetCode Stats"
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+          <img
+            src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Shravanthi20&theme=radical"
+            alt="Profile Details"
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
         </div>
       </section>
     </div>

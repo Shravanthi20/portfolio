@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -6,41 +7,51 @@ const navLinks = [
   { to: "/about", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/skills", label: "Skills" },
-  { to: "/contact", label: "Contact" },
+
 ];
 
 const Header = () => {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAlternateTheme, setIsAlternateTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setIsAlternateTheme(!isAlternateTheme);
+    document.body.classList.toggle('light-theme');
+  };
+
   return (
-    <header className="header" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Animated SVG wave background */}
-      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }} viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#6a82fb" fillOpacity="0.18">
-          <animate attributeName="d" dur="8s" repeatCount="indefinite"
-            values="M0,40 Q360,80 720,40 T1440,40 V120 H0 Z;
-                    M0,60 Q360,20 720,60 T1440,60 V120 H0 Z;
-                    M0,40 Q360,80 720,40 T1440,40 V120 H0 Z" />
-        </path>
-        <path fill="#ffd700" fillOpacity="0.10">
-          <animate attributeName="d" dur="10s" repeatCount="indefinite"
-            values="M0,60 Q360,20 720,60 T1440,60 V120 H0 Z;
-                    M0,40 Q360,80 720,40 T1440,40 V120 H0 Z;
-                    M0,60 Q360,20 720,60 T1440,60 V120 H0 Z" />
-        </path>
-      </svg>
-      {/* Navbar content */}
-      <nav className="navbar" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="navbar-logo">
-          <span className="navbar-title" style={{ fontWeight: 900, letterSpacing: '2px', fontSize: '1.5rem', color: '#222' }}>My Portfolio</span>
+    <header className="header">
+      <nav className="navbar glass-panel">
+        <Link to="/" className="navbar-logo">
+          <span className="gradient-text">Shravanthi S</span>
+        </Link>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <button
+            onClick={toggleTheme}
+            style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '1.5rem', padding: '0.2rem', lineHeight: 1 }}
+            title={isAlternateTheme ? "Switch to Dark Mode" : "Switch to Light Mode"}
+          >
+            {isAlternateTheme ? '🌙' : '☀️'}
+          </button>
+
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? "✕" : "☰"}
+          </button>
         </div>
-        <ul className="navbar-links">
+
+        <ul className={`navbar-links ${isMenuOpen ? "open" : ""}`}>
           {navLinks.map(link => (
             <li key={link.to}>
               <Link
                 to={link.to}
-                className={
-                  location.pathname === link.to ? "active" : undefined
-                }
+                className={location.pathname === link.to ? "active" : ""}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </Link>

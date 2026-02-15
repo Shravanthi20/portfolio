@@ -3,61 +3,79 @@ import React from 'react';
 const technicalSkills = [
   {
     category: 'Languages',
-    skills: ['Python', 'C', 'C++', 'Java']
+    skills: ['C', 'C++', 'Python', 'Java', 'JavaScript', 'SQL']
   },
   {
     category: 'Web Development',
-    skills: ['HTML', 'CSS', 'JavaScript', 'Streamlit', 'Flask']
+    skills: ['HTML', 'CSS', 'Streamlit']
   },
   {
-    category: 'Tools',
-    skills: ['Git & GitHub', 'Postman', 'Docker', 'Excel']
+    category: 'Frameworks',
+    skills: ['React', 'Node.js', 'Express.js', 'Flask', 'FastAPI']
+  },
+  {
+    category: 'Databases',
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite', 'GraphDB']
+  },
+  {
+    category: 'Data & Visualization',
+    skills: ['Tableau', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'GeoPandas']
   },
   {
     category: 'Cloud & APIs',
     skills: ['MongoDB Atlas', 'Google Cloud', 'Vision AI']
   },
   {
+    category: 'Core',
+    skills: ['Data Structures and Algorithms', 'DBMS', 'Operating Systems', 'Computer Networks', 'Linux']
+  },
+  {
     category: 'Embedded',
     skills: ['Arduino', 'ESP32 Programming']
   },
   {
-    category: 'Database',
-    skills: ['MySQL', 'GraphDB', 'SQLite']
+    category: 'Tools',
+    skills: ['Git & GitHub', 'Postman', 'Docker', 'Excel']
   }
 ];
 
 const Skills = () => {
   const hobbies = [
-    { icon: '', name: 'Listening to Songs', desc: 'Music is my creative escape.' },
-    { icon: '', name: 'Badminton', desc: 'Love the energy and quick reflexes!' },
-    { icon: '', name: 'Photography', desc: 'Capturing moments and landscapes.' },
+    { icon: '🎧', name: 'Listening to Songs', desc: 'Music is my creative escape.' },
+    { icon: '🏸', name: 'Badminton', desc: 'Love the energy and quick reflexes!' },
+    { icon: '📸', name: 'Photography', desc: 'Capturing moments and landscapes.' },
   ];
 
   return (
-    <div className="skills-page animated-section">
-      <svg className="skills-shape" width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="10" y="10" width="50" height="50" rx="15" fill="#6a82fb22"><animate attributeName="y" values="10;20;10" dur="5s" repeatCount="indefinite"/></rect></svg>
-      <h2 className="section-title">Technical Skills</h2>
-      <div className="skills-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.2rem', justifyContent: 'center', marginBottom: '2rem' }}>
+    <div className="skills-page">
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h1 className="hero-title">My <span className="gradient-text">Skills</span></h1>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>A snapshot of my technical expertise and interests.</p>
+      </div>
+
+      <div className="skills-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
         {technicalSkills.map((group, idx) => (
-          <div className="skills-category animated-card" key={idx} style={{ minWidth: '180px', background: 'linear-gradient(135deg, #e0fff4 60%, #ffe0e7 100%)', borderRadius: '14px', boxShadow: '0 2px 12px #ffd70022', padding: '1.2rem 2rem', textAlign: 'center', fontWeight: 600, color: '#007bff', fontSize: '1rem' }}>
-            <h3 style={{ color: '#ff6a88', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>{group.category}</h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <div className="glass-panel" key={idx} style={{ padding: '1.5rem', transition: 'transform 0.2s', cursor: 'default' }}>
+            <h3 style={{ color: 'var(--text-main)', marginBottom: '1rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.5rem' }}>{group.category}</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {group.skills.map((skill, sidx) => (
-                <li key={sidx} style={{ color: '#007bff', fontWeight: 600, margin: '0.2rem 0' }}>{skill}</li>
+                <span key={sidx} style={{ background: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)', padding: '0.4rem 0.8rem', borderRadius: '4px', fontSize: '0.9rem', fontWeight: 500 }}>
+                  {skill}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
-      <section className="hobbies-section animated-section">
-        <h2 className="section-title">Hobbies & Interests</h2>
-        <div className="hobbies-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', marginTop: '1.5rem' }}>
+
+      <section>
+        <h2 className="hero-title" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '2rem' }}>Hobbies & Interests</h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
           {hobbies.map((hobby, idx) => (
-            <div className="hobby-card animated-card" key={idx} style={{ minWidth: '180px', background: 'linear-gradient(135deg, #e0fff4 60%, #ffe0e7 100%)', borderRadius: '14px', boxShadow: '0 2px 12px #6a82fb22', padding: '1.2rem 2rem', textAlign: 'center', fontWeight: 600, color: '#007bff', fontSize: '1rem', animationDelay: `${0.2 + idx * 0.12}s` }}>
-              <span className="hobby-icon" role="img" aria-label={hobby.name} style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>{hobby.icon}</span>
-              <span className="hobby-name" style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.2rem' }}>{hobby.name}</span>
-              <span className="hobby-desc" style={{ color: '#6a82fb', fontSize: '0.98rem' }}>{hobby.desc}</span>
+            <div className="glass-panel" key={idx} style={{ padding: '2rem', textAlign: 'center', minWidth: '220px', maxWidth: '300px' }}>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{hobby.icon}</div>
+              <h3 style={{ color: 'var(--text-main)', marginBottom: '0.5rem' }}>{hobby.name}</h3>
+              <p style={{ color: 'var(--text-muted)' }}>{hobby.desc}</p>
             </div>
           ))}
         </div>
@@ -65,6 +83,5 @@ const Skills = () => {
     </div>
   );
 };
-
 
 export default Skills; 
